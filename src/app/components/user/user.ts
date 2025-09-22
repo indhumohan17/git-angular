@@ -1,0 +1,32 @@
+import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Component, inject, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-user',
+  imports: [CommonModule],
+  templateUrl: './user.html',
+  styleUrl: './user.css'
+})
+export class User implements OnInit {
+
+  userList: any[] = [];
+  http = inject(HttpClient);
+
+
+  constructor() { }
+
+  ngOnInit(): void {
+
+  }
+  getUsers() {
+    this.http.get('https://api.freeprojectapi.com/api/GoalTracker/getAllUsers')
+      .subscribe((res: any) => {
+        this.userList = res;
+        console.log(this.userList);
+        
+      });
+
+  }
+
+}

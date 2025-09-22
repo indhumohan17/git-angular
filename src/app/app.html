@@ -20,24 +20,24 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form (submit)="onSubmit()" [formGroup]="loginForm">
+            <form>
                <div class="mb-3">
                 <label for="name" class="col-form-label">Enter Name:</label>
-                <input type="name" formControlName="name" class="form-control"  id="name">
+                <input type="name" [(ngModel)]="userObj.name"  class="form-control"  id="name">
               </div>
               <div class="mb-3">
                 <label for="email" class="col-form-label">Enter Email:</label>
-                <input type="email" formControlName="email" class="form-control"  id="email">
+                <input type="email" [(ngModel)]="userObj.email"  class="form-control"  id="email">
               </div>
               <div class="mb-3">
                 <label for="mobile" class="col-form-label">Enter Moble No:</label>
-                <input type="number" formControlName="mobile" class="form-control"  id="mobile">
+                <input type="number" [(ngModel)]="userObj.mobile" class="form-control"  id="mobile">
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary" onclick="(onSaveUser)">Save</button>
           </div>
         </div>
       </div>
